@@ -34,17 +34,17 @@ $(function(){
 
 			function scoreCard(score) {
 				var returnString;
-					if (score==100) returnString = ""
+					if (score==100) returnString = "A+"
 
-					else if (score>90) returnString = ""
+					else if (score>90) returnString = "A"
 
-					else if (score>70) returnString = ""
+					else if (score>70) returnString = "C"
 
-					else if (score>50) returnString = ""
+					else if (score>50) returnString = "D"
 
-					else if (score>35) returnString = ""
+					else if (score>35) returnString = "F"
 
-					else if (score>20) returnString = ""
+					else if (score>20) returnString = "Why bother?"
 
 					else returnString = "YOU FAILED !"
 

@@ -77,11 +77,47 @@ $('.btnNext').click(function(){
 });
 
 $('.btnShowResult').click( function() {
-		
+		var tempCheck = $(this).parents('.questionContainer').find('input[type=radio]:checked'); 
+if (tempCheck.length == 0) { 
+     notice.fadeIn(300);return false; 
+} 
+var tempArr = $('input[type=radio]:checked'); 
+for (var i = 0, ii = tempArr.length; i < ii; i++) { 
+    userAnswers.push(tempArr[i].getAttribute('data-key')); 
+}
+
+progressKeeper.hide(); 
+var results = checkAnswers(),  
+              resultSet = '', 
+              trueCount = 0, 
+              answerKey = ' Answers <br />', 
+              score;
+
+for (var i = 0, ii = results.length; i &lt; ii; i++){ 
+    if (results[i] == true) trueCount++; 
+    resultSet += '<div class="resultRow"> Question #' + (i + 1) + (results[i]== true ? "<div class='correct'><span>Correct</span></div>": "<div class='wrong'><span>Wrong</span></div>") + "</div>"; 
+    answerKey += (i+1) +" : "+ answers[i] +' &nbsp;  &nbsp;  &nbsp;   '; 
+} 
+score =  roundReloaded(trueCount / questionLength*100, 2);
+
 });
 
+answerKey = "<div id='answer-key'>" + answerKey + "</div>"; 
+resultSet = '<h2 class="qTitle">' +judgeSkills(score) + ' You scored '+score+'%</h2>' + resultSet + answerKey; 
+$('#resultKeeper').html(resultSet).show(); 
+     $(this).parents('.questionContainer').fadeOut(500, function(){ 
+    $(this).next().fadeIn(500); 
+}); 
+return false;
 
+progressKeeper.hide(); 
+notice.hide(); 
+$("#main-quiz-holder input:radio").attr("checked", false);
 
+$('.answers li input').click(function() { 
+    $(this).parents('.answers').children('li').removeClass("selected"); 
+    $(this).parents('li').addClass('selected'); 
+});
 
 
 })

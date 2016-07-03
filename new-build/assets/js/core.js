@@ -32,19 +32,19 @@
 
 			function scoreCard(score) {
 				var returnString;
-					if (score==100) returnString = "Albus, is that you?"
+					if (score==100) returnString = "A++"
 
-					else if (score>90) returnString = "Outstanding, noble sir!"
+					else if (score>90) returnString = "A"
 
-					else if (score>70) returnString = "Exceeds expectations!"
+					else if (score>70) returnString = "C"
 
-					else if (score>50) returnString = "Acceptable. For a muggle."
+					else if (score>50) returnString = "D"
 
-					else if (score>35) returnString = "Well, that was poor."
+					else if (score>35) returnString = "F"
 
-					else if (score>20) returnString = "Dreadful!"
+					else if (score>20) returnString = "Not even worth a grade"
 
-					else returnString = "For shame, troll!"
+					else returnString = "Noob!"
 
 				return returnString;
 			}

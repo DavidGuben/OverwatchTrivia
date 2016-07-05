@@ -1,2 +1,0 @@
-# OverwatchTrivia
-Trivia Game
